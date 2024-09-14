@@ -1,0 +1,21 @@
+version: '3.8'
+
+services:
+  app:
+    image: hyperf/hyperf:8.2-alpine-v3.20-swoole
+    container_name: hyperf-nano-app
+    working_dir: /var/www
+    volumes:
+      - .:/var/www
+    ports:
+      - "9501:9501"
+    command: php index.php start
+    environment:
+      - PHP_EXTENSION=swoole  # Configura a extensão swoole no container (já instalada por padrão na imagem do Hyperf)
+    networks:
+      - hyperf-network
+
+networks:
+  hyperf-network:
+    driver: bridge
+
