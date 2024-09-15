@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Controllers;
+namespace Mixd\App\Controllers;
 
 use GuzzleHttp\Client;
 use GuzzleHttp\HandlerStack;

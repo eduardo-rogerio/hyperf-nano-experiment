@@ -3,12 +3,13 @@
 require 'vendor/autoload.php';
 
 use Hyperf\Nano\Factory\AppFactory;
-use App\Controllers\HomeController;
+use Mixd\App\Controllers\HomeController;
+use Mixd\App\Providers\ServiceProvider;
 
 $app = AppFactory::create();
 
-// Definindo a rota '/' para ser tratada pelo método index do HomeController
+ServiceProvider::register($app->getContainer());
+
 $app->get('/', [HomeController::class, 'index']);
 
-// Iniciando o servidor HTTP
 $app->run();
